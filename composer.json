@@ -1,0 +1,31 @@
+{
+    "name": "robindev/metadata",
+    "description": "librairie php pour manipuler les m\u0000tadonn\u0000es",
+    "homepage": "https://github.com/Powarox2159/robindev-metadata",
+    "keywords": ["metadata"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Powarox2159",
+            "email": "moriniere.robin1877@gmail.com",
+            "role": "Manager"
+        },
+        {
+            "name": "Moriniere Robin",
+            "email": "21606393@etu.unicaen.fr",
+            "role": "Developer"
+        },
+        {
+            "name": "Seck Mohamed Lamine",
+            "email": "21711412@etu.unicaen.fr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+         "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-4": { "Metatada\\": "src/" }
+    }
+}
