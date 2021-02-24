@@ -90,3 +90,4 @@ class Metadata {
         fputs($metaTxt, $data);
         fclose($metaTxt);
     }
+}
