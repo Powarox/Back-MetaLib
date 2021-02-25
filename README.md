@@ -2,27 +2,27 @@
 
 
 
-- Installation librairie
-    - Prérequis : "php": ">=5.3.0"
+## Installation librairie
+- Prérequis : "php": ">=5.3.0"
 
-    - Dernière version : 1.3.0
+- Dernière version : 1.3.0
 
-    - Avec Composer :
-        - composer require robindev/metadata
+- Avec Composer :
+    - composer require robindev/metadata
 
-    - Modifier la version :
-        - Ouvrir composer.json
-        - Modifier le numéro de version
+- Modifier la version :
+    - Ouvrir composer.json
+    - Modifier le numéro de version
 
-        ```json
-        {
-            "require": {
-                "robindev/metadata": "^1.3.0"
-            }
+    ```json
+    {
+        "require": {
+            "robindev/metadata": "^1.3.0"
         }
-        ```
+    }
+    ```
 
-- Utilisation librairie
+## Utilisation librairie
     - Initialisation :
 
         ```php
