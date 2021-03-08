@@ -8,59 +8,42 @@ class Metadata {
 
     }
 
-
     /**
      * Extrait les métadonnées d'un fichier
      *
-     * @param String $file : localisation du fichier dossier/file.extension
+     * @param String $filePath : localisation du fichier dossier/file.extension
      * @return Array $metaData : contient les métadonnées du fichier d'entré
     */
-    public function getMeta($file){
-        $data = shell_exec("exiftool -json ".$file);
+    public function getMeta($filePath){
+        $data = shell_exec("exiftool -json ".$filePath);
         $metaData = json_decode($data, true);
         return $metaData[0];
     }
 
 
     /**
-     * Trouve des occurence d'un motif dans les clef d'un tableau de données
+     * Extrait les métadonnées d'un fichier en les triant par type
      *
-     * @param Array $array : tableau associatif contenant les données
-     * @param String $motif : motif a rechercher avec preg_match()
-     * @return Array $arrayMetaType : données associée au motif trouvé
+     * @param String $filePath : localisation du fichier dossier/file.extension
+     * @return Array $metaData : contient les métadonnées du fichier d'entré
     */
-    public function regex($array, $motif){
-        $pattern = "/@?^(".$motif.")|@?(".$motif.")$/im";
-        $metaTypeOf = [];
-
-        foreach($array as $key => $value){
-            if(preg_match($pattern, $key)){
-                $metaTypeOf[$key] = $value;
-            }
-        }
-        return $metaTypeOf;
+    public function getMetaByType($filePath){
+        $data = shell_exec("exiftool -g -json ".$filePath);
+        $metaData = json_decode($data, true);
+        return $metaData[0];
     }
 
 
     /**
-     * Trie les métadonnées par type
+     * Extrait tous les type de métadonnées différents
      *
-     * @param Array $meta : tableau contenant les métadonnées
-     * @param String $file : localisation du fichier dossier/file.extension
-     * @return Array $arrayMetaType : métadonnées triées par type
+     * @param String $filePath : localisation du fichier dossier/file.extension
+     * @return Array $metaData : contient les clefs des métadonnées du fichier
     */
-    public function getMetaByType($meta){
-        // Warning need moyen de classer les types
-        $type = array('file', 'xmp');
-        $arrayMetaType = [];
-
-        foreach($type as $key){
-            $arrayMetaType[$key] = $this->regex($meta, $key);
-            $meta = array_diff_key($meta, $arrayMetaType[$key]);
-        }
-        $arrayMetaType['other'] = $meta;
-
-        return $arrayMetaType;
+    public function getMetaKeysType($filePath){
+        $data = shell_exec("exiftool -g -json ".$filePath);
+        $metaData = json_decode($data, true);
+        return array_keys($metaData);
     }
 
 
