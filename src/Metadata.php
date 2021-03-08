@@ -70,8 +70,8 @@ class Metadata {
      * @param String $dirFile : localisation du fichier dossier/file.extension
      * @param Array $data : contient les données extraites
     */
-    public function openMetaOnJsonFile($dirFile){
-        $jsonData = file_get_contents($dirFile);
+    public function openMetaOnJsonFile($filePath){
+        $jsonData = file_get_contents($filePath);
         $data = json_decode($jsonData, true);
         return $data;
     }
