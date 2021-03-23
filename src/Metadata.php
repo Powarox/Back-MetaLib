@@ -31,7 +31,6 @@ class Metadata {
         return $metaData[0];
     }
 
-
     /**
      * Extrait les métadonnées d'un fichier en les triant par type
      *
@@ -43,7 +42,6 @@ class Metadata {
         $metaData = json_decode($data, true);
         return $metaData[0];
     }
-
 
     /**
      * Extrait tous les type de métadonnées différents
@@ -59,6 +57,40 @@ class Metadata {
 
 
 
+// ########## ------------- Modification ------------- ########## //
+    /**
+     * Transforme un array trié par type, en un array non trié
+     *
+     * @param Array $meta : contient des métadonnées trié par type
+     * @return Array $metaTransform : contient les métadonnées non trié
+    */
+    public function transformMetaArray($meta){
+        $metaTransform = [];
+        foreach($meta as $key => $value){
+            if(is_array($value)){
+                foreach ($value as $k => $v) {
+                    $metaTransform[$k] = $v;
+                }
+            }
+            else{
+                $metaTransform[$key] = $value;
+            }
+        }
+        return $metaTransform;
+    }
+
+    /**
+     * Modifie les métadonnées d'un fichier à partir d'un fichier json
+     *
+     * @param String $jsonFilePath : localisation du fichier json contenant les
+     *      nouvelles métadonnées dir/file.json
+     * @param String $filePath : localisation du fichier initial dir/file.ext
+    */
+    public function importNewMetaFromJsonFile($jsonFilePath, $filePath){
+        shell_exec("exiftool -json=$jsonFilePath $filePath");
+    }
+
+
 
 // ########## ------------- Sauvegarde ------------- ########## //
     /**
@@ -72,7 +104,6 @@ class Metadata {
         $data = json_decode($jsonData, true);
         return $data;
     }
-
 
     /**
      * Sauvegarde un array dans un fichier json
@@ -91,6 +122,19 @@ class Metadata {
         return $filepath;
     }
 
+
+
+// ########## ------------- Sorted Array ------------- ########## //
+    /**
+     * Trie un tableau par longueur des des valeur(array)
+     *
+     * @param Array $meta : Tableau de Tableau
+     * @param Array $meta : Tableau de Tableau trié
+    */
+    public function sortedArrayByValue($meta){
+        asort($meta);
+        return $meta;
+    }
 
 
 
