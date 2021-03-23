@@ -2,15 +2,19 @@
 
 namespace Metadata;
 
+use Metadata\Tools\Utilitaire;
+use Metadata\Tools\GestionErrors;
+use Metadata\Tools\GestionExiftool;
+
 class Metadata {
     protected $errors;
     protected $exiftool;
     protected $utilitaire;
 
     public function __construct(){
-        $this->errors = new \Class\GestionErrors();
-        $this->utilitaire = new \Class\Utilitaire();
-        $this->exiftool = new \Class\GestionExiftool();
+        $this->errors = new GestionErrors();
+        $this->utilitaire = new Utilitaire();
+        $this->exiftool = new GestionExiftool();
     }
 
 

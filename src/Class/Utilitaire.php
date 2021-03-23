@@ -1,6 +1,6 @@
 <?php
 
-namespace Metadata\Class;
+namespace Metadata\Tools;
 
 class Utilitaire {
 
