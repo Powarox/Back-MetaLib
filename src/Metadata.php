@@ -3,11 +3,18 @@
 namespace Metadata;
 
 class Metadata {
+    protected $errors;
+    protected $exiftool;
+    protected $utilitaire;
 
     public function __construct(){
-
+        $this->errors = new \Class\GestionErrors();
+        $this->utilitaire = new \Class\Utilitaire();
+        $this->exiftool = new \Class\GestionExiftool();
     }
 
+
+// ########## ------------- Extraction ------------- ########## //
     /**
      * Extrait les métadonnées d'un fichier
      *
@@ -47,6 +54,9 @@ class Metadata {
     }
 
 
+
+
+// ########## ------------- Sauvegarde ------------- ########## //
     /**
      * Ouvre un fichier Json pour extraire les données
      *
@@ -76,4 +86,19 @@ class Metadata {
         fclose($metaTxt);
         return $filepath;
     }
+
+
+
+
+// ########## ------------- Autre ------------- ########## //
+    /**
+     * Télécharge un fichier
+     *
+     * @param String $filePath : nom du dossier de sortie dir/dir/file.png
+    */
+    public function downloadFile($filePath){
+        $this->utilitaire->downloadFile($filePath);
+    }
+
+
 }
