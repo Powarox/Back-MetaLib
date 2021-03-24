@@ -38,7 +38,7 @@ class Metadata {
      * @return Array $metaData : contient les métadonnées du fichier d'entré
     */
     public function getMetaByType($filePath){
-        $data = shell_exec("exiftool -g -json ".$filePath);
+        $data = shell_exec("exiftool -g1 -json ".$filePath);
         $metaData = json_decode($data, true);
         return $metaData[0];
     }
@@ -50,7 +50,7 @@ class Metadata {
      * @return Array $metaData : contient les clefs des métadonnées du fichier
     */
     public function getMetaKeysType($filePath){
-        $data = shell_exec("exiftool -g -json ".$filePath);
+        $data = shell_exec("exiftool -g1 -json ".$filePath);
         $metaData = json_decode($data, true);
         return array_keys($metaData);
     }
