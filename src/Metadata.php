@@ -244,7 +244,7 @@ class Metadata {
         $metaTransform = $this->transformMetaArray($meta);
         $jsonPath = $this->saveMetaJsonFile($folder, $name, $metaTransform);
         $this->importNewMetaFromJsonFile($filePath, $jsonPath);
-        $this->utilitaire->downloadFile($filePath)
+        $this->utilitaire->downloadFile($filePath);
     }
 
     /**
@@ -275,7 +275,7 @@ class Metadata {
     public function saveImportAndDownloadMeta($filePath, $folder, $name, $meta){
         $jsonPath = $this->saveMetaJsonFile($folder, $name, $meta);
         $this->importNewMetaFromJsonFile($filePath, $jsonPath);
-        $this->utilitaire->downloadFile($filePath)
+        $this->utilitaire->downloadFile($filePath);
     }
 
 
@@ -314,6 +314,6 @@ class Metadata {
      * @return String $this->form : formulaire HTML au format string
     */
     public function createForm($metaByType, $formAction, $formMethode){
-        $this->metaFormByType->createForm($metaByType, $formAction, $formMethode)
+        $this->metaFormByType->createForm($metaByType, $formAction, $formMethode);
     }
 }

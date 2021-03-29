@@ -20,12 +20,4 @@ class GestionErrors {
     public function getErr3(){
         throw new \Exception("Error ... Message", 1);
     }
-
-    // try {
-    //
-    // } catch(e) {
-    //
-    // } finally {
-    //
-    // }
 }
