@@ -131,7 +131,16 @@ class Metadata {
 
 
 
-// ########## ------------- Sorted Array ------------- ########## //
+// ########## ------------- Utilitary ------------- ########## //
+    /**
+     * Télécharge un fichier
+     *
+     * @param String $filePath : nom du dossier de sortie dir/dir/file.png
+    */
+    public function downloadFile($filePath){
+        $this->utilitaire->downloadFile($filePath);
+    }
+
     /**
      * Trie un tableau par longueur des des valeur(array)
      *
@@ -141,18 +150,6 @@ class Metadata {
     public function sortedArrayByValue($meta){
         asort($meta);
         return $meta;
-    }
-
-
-
-// ########## ------------- Utilitary ------------- ########## //
-    /**
-     * Télécharge un fichier
-     *
-     * @param String $filePath : nom du dossier de sortie dir/dir/file.png
-    */
-    public function downloadFile($filePath){
-        $this->utilitaire->downloadFile($filePath);
     }
 
 
