@@ -6,15 +6,22 @@ use Metadata\Tools\Utilitaire;
 use Metadata\Tools\GestionErrors;
 use Metadata\Tools\GestionExiftool;
 
+use Metadata\Forms\CreateMetaFormByType;
+use Metadata\Forms\CreateSimpleMetaForm;
+
 class Metadata {
     protected $errors;
     protected $exiftool;
     protected $utilitaire;
+    protected $simpleForm;
+    protected $metaFormByType;
 
     public function __construct(){
         $this->errors = new GestionErrors();
         $this->utilitaire = new Utilitaire();
         $this->exiftool = new GestionExiftool();
+        $this->simpleForm = new CreateSimpleMetaForm();
+        $this->metaFormByType = new CreateMetaFormByType();
     }
 
 
@@ -269,5 +276,44 @@ class Metadata {
         $jsonPath = $this->saveMetaJsonFile($folder, $name, $meta);
         $this->importNewMetaFromJsonFile($filePath, $jsonPath);
         $this->utilitaire->downloadFile($filePath)
+    }
+
+
+// ########## ------------- Create Meta Forms ------------- ########## //
+    /**
+     * Créer un formulaire HTML à partir de métadonnées trié par type
+     *
+     * Param obligatoires
+     * @param Array $metaByType : donnée pour construire le form
+     * @param String $formAction : action à effectuer après envoie (index.php?...)
+     * @param String $formMethode : methode d'envoie (get, post, ...)
+     *
+     * Param optionnels
+     * @param Array $formClass : ajouter une class sur le from
+     * @param String $formId : ajouter un id sur le form
+     * @param String $divClass : ajouter une class pour les div
+     * @param Array $submitId : ajouter un id sur bouton submit
+     * @param String $name : ajouter une value sur bounton submit
+     *
+     * @return String $this->form : formulaire HTML au format de string
+    */
+    public function createMetaFormByType($metaByType, $formAction, $formMethode,
+        $formClass = '', $formId = '',  $divClass = '', $submitId = '', $name = 'valider'){
+        $this->simpleForm->createMetaFormByType($metaByType, $formAction, $formMethode,
+                $formClass, $formId,  $divClass, $submitId, $name);
+    }
+
+    /**
+    * Créer un formulaire HTML à partir de métadonnées
+     *
+     * Param obligatoires
+     * @param Array $metaByType : donnée pour construire le form
+     * @param String $formAction : action à effectuer après envoie (index.php?...)
+     * @param String $formMethode : methode d'envoie (get, post, ...)
+     *
+     * @return String $this->form : formulaire HTML au format string
+    */
+    public function createForm($metaByType, $formAction, $formMethode){
+        $this->metaFormByType->createForm($metaByType, $formAction, $formMethode)
     }
 }
