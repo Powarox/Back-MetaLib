@@ -28,11 +28,11 @@
     ```php
     <?php
 
-        namespace App;
+    namespace App;
 
-        require './vendor/autoload.php';
+    require './vendor/autoload.php';
 
-        $lib = new \Metadata\Metadata();
+    $lib = new \Metadata\Metadata();
     ```
 
 - Appel de fonctions :
@@ -40,7 +40,7 @@
     ```php
     <?php
 
-        $result = $lib->functionExemple($param1, $param2);
+    $result = $lib->functionExemple($param1, $param2);
     ```
 
 
