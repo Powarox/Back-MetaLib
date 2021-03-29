@@ -44,6 +44,42 @@
     ```
 
 
+## Extraction
+
+```php
+
+```
+
+## Modifications
+
+```php
+
+```
+
+## Sauvegarde
+
+```php
+
+```
+
+## Utilitaire
+
+```php
+
+```
+
+## Multiple Actions
+
+```php
+
+```
+
+## Création Formulaire
+
+```php
+
+```
+
 - Fonctions disponibles :
     - getMeta($file) permet d'extraire les métadonnées d'un fichier pdf puis de les retourner sous forme de tableau.
 
@@ -72,7 +108,7 @@
 
 
 
-    - getMetaByType($meta) permet de trier les métadonnées par catégorie (xmp, file, exif, ... d'autre à venir)
+- getMetaByType($meta) permet de trier les métadonnées par catégorie (xmp, file, exif, ... d'autre à venir)
 
     ```php
     /**
@@ -110,7 +146,7 @@
         ```
 
 
-    - openMetaOnJsonFile($dirFile) permet d'ouvrir un fichier json contenant des métadonnées, puis de les extraitre pour retourner celle-ci sous forme de tableau. Nécessite de connaître de la localisation du fichier json.
+- openMetaOnJsonFile($dirFile) permet d'ouvrir un fichier json contenant des métadonnées, puis de les extraitre pour retourner celle-ci sous forme de tableau. Nécessite de connaître de la localisation du fichier json.
 
     ```php
     /**
@@ -127,7 +163,7 @@
     ```
 
 
-    - saveMetaJsonFile($folder, $name, $meta) permet de sauvegarder des métadonnées dans un fichier json.
+- saveMetaJsonFile($folder, $name, $meta) permet de sauvegarder des métadonnées dans un fichier json.
     ```php
     /**
      * Sauvegarde un array dans un fichier json
