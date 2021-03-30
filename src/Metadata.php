@@ -297,7 +297,7 @@ class Metadata {
     */
     public function createMetaFormByType($metaByType, $formAction, $formMethode,
         $formClass = '', $formId = '',  $divClass = '', $submitId = '', $name = 'valider'){
-        $this->simpleForm->createMetaFormByType($metaByType, $formAction, $formMethode,
+        return $this->metaFormByType->createMetaFormByType($metaByType, $formAction, $formMethode,
                 $formClass, $formId,  $divClass, $submitId, $name);
     }
 
@@ -312,6 +312,6 @@ class Metadata {
      * @return String $this->form : formulaire HTML au format string
     */
     public function createForm($metaByType, $formAction, $formMethode){
-        $this->metaFormByType->createForm($metaByType, $formAction, $formMethode);
+        return $this->simpleForm->createForm($metaByType, $formAction, $formMethode);
     }
 }
