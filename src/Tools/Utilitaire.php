@@ -4,10 +4,6 @@ namespace Metadata\Tools;
 
 class Utilitaire {
 
-    public function __construct(){
-
-    }
-
     /**
      * Lance le téléchargement d'un ficher
      *
