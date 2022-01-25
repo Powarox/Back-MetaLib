@@ -1,6 +1,5 @@
 # Librairie PHP métadonnées
-
-
+[![](https://tokei.rs/b1/github/Powarox2159/robindev-metadata?category=code)](https://github.com/Powarox2159/robindev-metadata)
 
 ## Installation librairie
 - Prérequis : "php": ">=5.3.0"
